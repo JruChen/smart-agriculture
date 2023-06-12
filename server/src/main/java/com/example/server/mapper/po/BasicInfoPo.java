@@ -23,7 +23,7 @@ public class BasicInfoPo {
     private String name;
 
     @Column(name = "yield")
-    private Integer yield;
+    private Double yield;
 
     @Column(name = "area")
     private Double area;
