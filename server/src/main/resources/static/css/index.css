@@ -185,7 +185,7 @@ ul,ol{
     background-size: 100% 100%;*/
     border: 0.01rem solid #217093;
 }
-.center .center-left .left-cen .company{
+.center .center-left .left-cen .species-areaYield{
     width: calc(100% - .2rem);
     height: calc(100% - .6rem);
     margin-left: .1rem;
@@ -194,11 +194,11 @@ ul,ol{
     padding: .2rem;
     box-sizing: border-box;
 }
-.center .center-left .left-cen .company li{
-    color: white;
-    height: .3rem;
-    line-height: .3rem;
-}
+/*.center .center-left .left-cen .company li{*/
+/*    color: white;*/
+/*    height: .3rem;*/
+/*    line-height: .3rem;*/
+/*}*/
 
 
 .center .center-left .left-bottom{

@@ -1,8 +1,11 @@
 package com.example.server.service;
 
 import com.example.server.dao.AirCo2Dao;
+import com.example.server.dao.bo.AirCo2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AirCo2Service {
@@ -14,4 +17,21 @@ public class AirCo2Service {
         this.airCo2Dao = airCo2Dao;
     }
 
+    public void insert(AirCo2 airCo2){
+        this.airCo2Dao.insert(airCo2);
+    }
+
+    public AirCo2 findLatest(){
+        AirCo2 bo=null;
+        try{
+            bo=this.airCo2Dao.findLatest();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return bo;
+    }
+
+    public List<AirCo2> retrieveAll() {
+        return this.airCo2Dao.retrieveAll();
+    }
 }
