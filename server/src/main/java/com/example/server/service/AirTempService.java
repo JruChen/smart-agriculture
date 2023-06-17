@@ -1,5 +1,6 @@
 package com.example.server.service;
 
+import com.example.server.Listener.AirTempListener;
 import com.example.server.dao.AirTempDao;
 import com.example.server.dao.bo.AirTemp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,12 @@ public class AirTempService {
 
     private AirTempDao airTempDao;
 
+    private AirTempListener airTempListener;
+
     @Autowired
     public AirTempService(AirTempDao airTempDao){
         this.airTempDao = airTempDao;
+        this.airTempListener = new AirTempListener(airTempDao);
     }
 
     public void insert(AirTemp airTemp) {

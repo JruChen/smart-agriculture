@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository
-public class AirCo2Dao {
+public class AirCo2Dao{
     private AirCo2PoMapper airCo2PoMapper;
 
     @Autowired

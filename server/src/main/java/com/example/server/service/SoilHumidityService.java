@@ -1,5 +1,6 @@
 package com.example.server.service;
 
+import com.example.server.Listener.SoilHumidityListener;
 import com.example.server.dao.SoilHumidityDao;
 import com.example.server.dao.bo.SoilHumidity;
 import com.example.server.mapper.po.SoilHumidityPo;
@@ -13,9 +14,12 @@ public class SoilHumidityService {
 
     private SoilHumidityDao soilHumidityDao;
 
+    private SoilHumidityListener soilHumidityListener;
+
     @Autowired
     public SoilHumidityService(SoilHumidityDao soilHumidityDao){
         this.soilHumidityDao = soilHumidityDao;
+        this.soilHumidityListener = new SoilHumidityListener(soilHumidityDao);
     }
 
     public void insert(SoilHumidity soilHumidity){

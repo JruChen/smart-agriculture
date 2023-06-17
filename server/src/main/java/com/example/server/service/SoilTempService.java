@@ -1,5 +1,6 @@
 package com.example.server.service;
 
+import com.example.server.Listener.SoilTempListener;
 import com.example.server.dao.SoilTempDao;
 import com.example.server.dao.bo.SoilTemp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,12 @@ public class SoilTempService {
 
     private SoilTempDao soilTempDao;
 
+    private SoilTempListener soilTempListener;
+
     @Autowired
     public SoilTempService(SoilTempDao soilTempDao){
         this.soilTempDao = soilTempDao;
+        this.soilTempListener = new SoilTempListener(soilTempDao);
     }
 
     public void insert(SoilTemp soilTemp){
