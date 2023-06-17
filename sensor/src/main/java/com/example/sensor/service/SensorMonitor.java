@@ -25,8 +25,11 @@ public class SensorMonitor {
     }
 
     public void sendData() throws JMSException, InterruptedException {
-        for(Sensor sensor: sensorList){
-            sensor.sendData();
+        while (true){
+            for(Sensor sensor: sensorList){
+                sensor.sendData();
+            }
+            Thread.sleep(intervalTime);
         }
     }
 

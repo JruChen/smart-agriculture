@@ -21,7 +21,7 @@ public class AirTempListener {
     private AirTempDao airTempDao;
 
     public AirTempListener(AirTempDao airTempDao){
-        this.sensorType = SensorType.AIRCO2;
+        this.sensorType = SensorType.AIRTEMP;
         this.topicName = sensorType.toString();
         this.airTempDao = airTempDao;
 

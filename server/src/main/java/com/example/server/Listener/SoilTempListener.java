@@ -20,7 +20,7 @@ public class SoilTempListener {
     private SoilTempDao soilTempDao;
 
     public SoilTempListener(SoilTempDao soilTempDao){
-        this.sensorType = SensorType.AIRCO2;
+        this.sensorType = SensorType.SOILTEMP;
         this.topicName = sensorType.toString();
         this.soilTempDao = soilTempDao;
 

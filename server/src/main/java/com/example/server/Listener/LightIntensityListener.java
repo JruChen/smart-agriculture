@@ -21,7 +21,7 @@ public class LightIntensityListener {
     private LightIntensityDao lightIntensityDao;
 
     public LightIntensityListener(LightIntensityDao lightIntensityDao){
-        this.sensorType = SensorType.AIRCO2;
+        this.sensorType = SensorType.LIGHTINTENSITY;
         this.topicName = sensorType.toString();
         this.lightIntensityDao = lightIntensityDao;
 

@@ -22,7 +22,7 @@ public class SoilFcListener {
     private SoilFcDao soilFcDao;
 
     public SoilFcListener(SoilFcDao soilFcDao){
-        this.sensorType = SensorType.AIRCO2;
+        this.sensorType = SensorType.SOILFC;
         this.topicName = sensorType.toString();
         this.soilFcDao = soilFcDao;
 

@@ -22,7 +22,7 @@ public class SoilHumidityListener {
     private SoilHumidityDao soilHumidityDao;
 
     public SoilHumidityListener(SoilHumidityDao soilHumidityDao){
-        this.sensorType = SensorType.AIRCO2;
+        this.sensorType = SensorType.SOILHUMIDITY;
         this.topicName = sensorType.toString();
         this.soilHumidityDao = soilHumidityDao;
 

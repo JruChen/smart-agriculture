@@ -21,7 +21,7 @@ public class SoilPhListener {
     private SoilPhDao soilPhDao;
 
     public SoilPhListener(SoilPhDao soilPhDao){
-        this.sensorType = SensorType.AIRCO2;
+        this.sensorType = SensorType.SOILPH;
         this.topicName = sensorType.toString();
         this.soilPhDao = soilPhDao;
 

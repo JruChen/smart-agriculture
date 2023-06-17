@@ -50,25 +50,15 @@ public abstract class Sensor {
 
     public void sendData() throws JMSException, InterruptedException {
         //5. 消息发送
-        while(true){
-            String d = generateData();
-            TextMessage textMessage = session.createTextMessage(d);
-            producer.send(textMessage);
-//            System.out.println(d);
-            Thread.sleep(intervalTime);
-        }
-        //执行3秒就退出
-//        long t1 = System.currentTimeMillis();
-//        while (true){
-//            long t2 = System.currentTimeMillis();
-//            if(t2-t1 > 30*60){
-//                break;
-//            }else{
-//                String message = generateData();
-//                TextMessage textMessage = session.createTextMessage(message);
-//                producer.send(textMessage);
-//                System.out.println("send: "+ topicName +" data "+ message);
-//            }
+        String d = generateData();
+        TextMessage textMessage = session.createTextMessage(d);
+        producer.send(textMessage);
+//        while(true){
+//            String d = generateData();
+//            TextMessage textMessage = session.createTextMessage(d);
+//            producer.send(textMessage);
+////            System.out.println(d);
+//            Thread.sleep(intervalTime);
 //        }
     }
 
