@@ -1,5 +1,6 @@
 package com.example.server.service;
 
+import com.example.server.Listener.AirCo2Listener;
 import com.example.server.dao.AirCo2Dao;
 import com.example.server.dao.bo.AirCo2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,12 @@ import java.util.List;
 public class AirCo2Service {
 
     private AirCo2Dao airCo2Dao;
+    private AirCo2Listener airCo2Listener;
 
     @Autowired
     public AirCo2Service(AirCo2Dao airCo2Dao){
         this.airCo2Dao = airCo2Dao;
+        this.airCo2Listener = new AirCo2Listener(airCo2Dao);
     }
 
     public void insert(AirCo2 airCo2){

@@ -60,7 +60,8 @@
             </div>
             <div class="left-cen">
                 <div class="title">部分药材种植园面积和产量</div>
-                <div class="species-areaYield">
+<!--                <div class="company" id="species-areaYield">-->
+                <div class="allnav" id="species-areaYield">
 
                 </div>
             </div>
@@ -258,6 +259,16 @@
 <script src="js/fontscroll.js"></script>
 <script src="js/echarts.js"></script>
 <script src="js/myecharts.js"></script>
+
+<script>
+    $.ajax({
+        type: 'POST',
+        url: '/speciesAreaYield',
+        success: function (data){
+            var rankChart = echarts.init()
+        }
+    })
+</script>
 
 <script>
     /*$('#ceshi').wodry({
