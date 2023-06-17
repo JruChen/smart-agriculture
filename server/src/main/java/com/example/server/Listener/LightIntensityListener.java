@@ -3,7 +3,9 @@ package com.example.server.Listener;
 
 import com.example.model.SensorType;
 import com.example.server.dao.LightIntensityDao;
+import com.example.server.dao.WarningDao;
 import com.example.server.dao.bo.LightIntensity;
+import com.example.server.dao.bo.Warning;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
@@ -19,11 +21,13 @@ public class LightIntensityListener {
     private Session session;
     private Topic topic;
     private LightIntensityDao lightIntensityDao;
+    private WarningDao warningDao;
 
-    public LightIntensityListener(LightIntensityDao lightIntensityDao){
+    public LightIntensityListener(LightIntensityDao lightIntensityDao, WarningDao warningDao){
         this.sensorType = SensorType.LIGHTINTENSITY;
         this.topicName = sensorType.toString();
         this.lightIntensityDao = lightIntensityDao;
+        this.warningDao = warningDao;
 
         //1.创建工厂连接对象，指定ip和端口号
         connectionFactory = new ActiveMQConnectionFactory(ActiveMQConnectionFactory.DEFAULT_USER,
@@ -52,6 +56,10 @@ public class LightIntensityListener {
                         try {
                             double d = Double.parseDouble(textMessage.getText());
                             lightIntensityDao.insert(LightIntensity.builder().value(d).time(LocalDateTime.now()).build());
+                            //警报范围控制
+                            if(d<=45.0||d>=75.0){
+                                warningDao.insert(Warning.builder().type(sensorType.toString()).value(d).time(LocalDateTime.now()).build());
+                            }
                         } catch (JMSException e) {
                             // TODO Auto-generated catch block
                             e.printStackTrace();

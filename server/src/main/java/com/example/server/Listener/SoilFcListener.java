@@ -2,10 +2,10 @@ package com.example.server.Listener;
 
 
 import com.example.model.SensorType;
-import com.example.server.dao.AirTempDao;
 import com.example.server.dao.SoilFcDao;
-import com.example.server.dao.bo.AirTemp;
+import com.example.server.dao.WarningDao;
 import com.example.server.dao.bo.SoilFc;
+import com.example.server.dao.bo.Warning;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
@@ -20,11 +20,13 @@ public class SoilFcListener {
     private Session session;
     private Topic topic;
     private SoilFcDao soilFcDao;
+    private WarningDao warningDao;
 
-    public SoilFcListener(SoilFcDao soilFcDao){
+    public SoilFcListener(SoilFcDao soilFcDao, WarningDao warningDao){
         this.sensorType = SensorType.SOILFC;
         this.topicName = sensorType.toString();
         this.soilFcDao = soilFcDao;
+        this.warningDao = warningDao;
 
         //1.创建工厂连接对象，指定ip和端口号
         connectionFactory = new ActiveMQConnectionFactory(ActiveMQConnectionFactory.DEFAULT_USER,
@@ -53,6 +55,9 @@ public class SoilFcListener {
                         try {
                             double d = Double.parseDouble(textMessage.getText());
                             soilFcDao.insert(SoilFc.builder().value(d).time(LocalDateTime.now()).build());
+                            if(d<=52.0||d>=67.0){
+                                warningDao.insert(Warning.builder().type(sensorType.toString()).value(d).time(LocalDateTime.now()).build());
+                            }
                         } catch (JMSException e) {
                             // TODO Auto-generated catch block
                             e.printStackTrace();
