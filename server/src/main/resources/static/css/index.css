@@ -24,6 +24,8 @@ ul,ol{
 }
 .allnav{
     height: 100%;
+    width: 100%;
+    margin: 0 auto;
 }
 /*谷哥滚动条样式*/
 
@@ -34,6 +36,7 @@ ul,ol{
 /***/
 .allnav{
     height: 100%;
+    margin: 0 auto;
 }
 
 /*
@@ -48,7 +51,7 @@ ul,ol{
     width: 25%;
     height: 1.05rem;
     color: white;
-/*    border: 1px solid green;*/
+    /*    border: 1px solid green;*/
     text-align: center;
     line-height: 1.05rem;
 }
@@ -56,8 +59,8 @@ ul,ol{
     width: 50%;
     height: 1.05rem;
     /*border: 1px solid red;*/
-/*    background: url("../images/head.gif") no-repeat;
-    background-size: 100% 100%;*/
+    /*    background: url("../images/head.gif") no-repeat;
+        background-size: 100% 100%;*/
     position: relative;
 }
 .header .header-center .header-title{
@@ -99,7 +102,7 @@ ul,ol{
 .center .center-left{
     width: 25%;
     padding: .1rem;
-/*    border: 1px solid red;*/
+    /*    border: 1px solid red;*/
 
 }
 .center .center-left .left-top{
@@ -142,7 +145,7 @@ ul,ol{
 .title{
     width: 90%;
     height: 0.3rem;
-/*    border: 1px solid gold;*/
+    /*    border: 1px solid gold;*/
     position: relative;
     top:.1rem;
     left: .25rem;
@@ -213,6 +216,11 @@ ul,ol{
     height: 2.6rem;
     margin-left: 0.1rem;
     margin-top: 0.1rem;
+
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .center .center-cen{
     width: 50%;
@@ -264,19 +272,24 @@ ul,ol{
 }
 .center .center-cen .cen-top .top-bottom{
     width: 100%;
-    height: 4.8rem;
+    height: 6.5rem;
     /*border: 1px solid red;*/
     position: absolute;
-    top:1.6rem;
-    padding: .2rem;
+    top:0.1rem;
+    padding: .1rem;
     /*overflow: hidden;*/
+}
+.top-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 0.02rem; /* 可选的间距设置 */
 }
 
 
 .center .center-cen .cen-bottom{
     width: 100%;
     height: 3.2rem;
-
     border: 0.01rem solid #217093;
 }
 .center .center-cen .bottom-b{
@@ -291,15 +304,16 @@ ul,ol{
     padding: .1rem;
 }
 
-.center .center-right .right-top{
-    width: 100%;
-    height: 3.2rem;
-    margin-bottom: .4rem;
-    border: 0.01rem solid #217093;
-}
+/*.center .center-right .right-top{*/
+/*width: 100%;*/
+/*height: 3.2rem;*/
+/*margin-bottom: .4rem;*/
+/*border: 0.01rem solid #217093;*/
+/*}*/
 .center .center-right .right-cen{
     width: 100%;
-    height: 3.2rem;
+    /*height: 3.2rem;*/
+    height: 6rem;
     margin-bottom: .4rem;
     border: 0.01rem solid #217093;
 }
@@ -316,6 +330,93 @@ ul,ol{
     padding: .1rem;
     /*overflow: hidden;*/
 }
+
+/*!!!*/
+.parameter-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.parameter-icons img {
+    /*width: 40px;*/
+    /*height: 40px;*/
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.parameter-values {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.parameter-value {
+    width: calc(100% / 8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: #fbfbfc;
+}
+
+.parameter-descriptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.parameter-description {
+    /*width: calc(100% / 8);*/
+    flex: 0 0 calc(100% / 8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #fbfbfc;
+}
+
+.parameter-status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.parameter-status-normal {
+    width: calc(100% / 8);
+    height: calc(100% / 15);
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #029698;
+    color: white;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.green-icon {
+    filter: invert(35%) sepia(92%) saturate(4704%) hue-rotate(123deg) brightness(93%) contrast(88%);
+}
+
+.message {
+    color: #ff7878;
+    font-size: 20px;
+    margin-bottom: 0.1rem;
+}
+
+
+
 
 
 

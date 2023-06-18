@@ -57,7 +57,7 @@ public class LightIntensityListener {
                             double d = Double.parseDouble(textMessage.getText());
                             lightIntensityDao.insert(LightIntensity.builder().value(d).time(LocalDateTime.now()).build());
                             //警报范围控制
-                            if(d<=45.0||d>=75.0){
+                            if(d<=40.5||d>=79.5){
                                 warningDao.insert(Warning.builder().type(sensorType.toString()).value(d).time(LocalDateTime.now()).build());
                             }
                         } catch (JMSException e) {

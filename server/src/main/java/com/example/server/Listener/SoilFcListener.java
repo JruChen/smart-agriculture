@@ -55,7 +55,7 @@ public class SoilFcListener {
                         try {
                             double d = Double.parseDouble(textMessage.getText());
                             soilFcDao.insert(SoilFc.builder().value(d).time(LocalDateTime.now()).build());
-                            if(d<=52.0||d>=67.0){
+                            if(d<=50.5||d>=69.5){
                                 warningDao.insert(Warning.builder().type(sensorType.toString()).value(d).time(LocalDateTime.now()).build());
                             }
                         } catch (JMSException e) {
